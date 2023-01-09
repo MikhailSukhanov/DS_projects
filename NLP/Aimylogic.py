@@ -10,8 +10,8 @@ from nltk.corpus import stopwords
 nltk.download('stopwords')
 from nltk.probability import FreqDist
 
-api_id = 11111111 # Changed
-api_hash = '111111111111111111111111111111' # Changed
+api_id = 11111111 #Changed
+api_hash = '111111111111111111111111111111' #Changed
 phone = '11111111111' #Changed
 
 client = TelegramClient(phone, api_id, api_hash)
@@ -46,7 +46,7 @@ total_messages = 0
 total_count_limit = 0
 
 while True:
-	history = client(GetHistoryRequest(peer = groups[1],	# Aimylogic (сообщество пользователей)
+	history = client(GetHistoryRequest(peer = groups[1],	#Aimylogic (сообщество пользователей)
 								   	   offset_id = offset_id,
 									   offset_date = None,
 									   add_offset = 0,
@@ -145,4 +145,4 @@ print(rel_questions)
 #
 #Проведя анализ словаря 'rel_questions' можно сделать следующие выводы:
 #в среднем каждое четвертое сообщение является вопросом;
-#процент сообщений-вопросов меняется от года к году в среднем на ±1.35%
+#процент сообщений-вопросов меняется от года к году в среднем на ±1.35 п.п.
