@@ -57,7 +57,7 @@ while True:
 	if not history.messages:
 		break
 	messages = history.messages
-	for i, message in enumerate(messages):
+	for message in messages:
 		data.append([message.to_dict()['date'], message.message])
 	offset_id = messages[len(messages) - 1].id
 	if total_count_limit != 0 and total_messages >= total_count_limit:
@@ -74,9 +74,7 @@ dataframe = pd.read_csv('chats.csv')
 df = dataframe.copy()
 df = df.dropna()
 df['year'] = [i[:4] for i in df['date']]
-df['month'] = [i[5:7] for i in df['date']]
 df['year'] = df['year'].astype('int')
-df['month'] = df['month'].astype('int')
 df = df[df['year'] != 2023]
 df = df.drop(columns = 'date')
 df['message'] = df['message'].str.lower()
