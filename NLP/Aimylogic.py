@@ -9,6 +9,8 @@ import nltk
 from nltk.corpus import stopwords
 nltk.download('stopwords')
 from nltk.probability import FreqDist
+import matplotlib.pyplot as plt
+import seaborn as sns
 
 api_id = 11111111 #Changed
 api_hash = '111111111111111111111111111111' #Changed
@@ -117,14 +119,22 @@ words.index = range(len(words))
 #Most used words over 5 years
 years = [2018, 2019, 2020, 2021, 2022]
 freq_words = pd.DataFrame(columns = years, index = range(10))
+freq_words_plot = pd.DataFrame(columns = ['place', 'year', 'word'], index = range(50))
 
+count = 0
 for year in years:
     fdist = FreqDist(words.loc[words['year'] == year, 'word']).most_common(10)
     freq_words[year] = [i[0] for i in fdist]
+    for i, word in enumerate(fdist):
+        freq_words_plot.iloc[count, 0] = i + 1
+        freq_words_plot.iloc[count, 1] = str(year)
+        freq_words_plot.iloc[count, 2] = word[0]
+        count += 1
 print(freq_words, '\n')
 
 #Frequency of questions over 5 years
 rel_questions = {}
+percent = []
 for year in years:
     df_temp = df1.loc[df1['year'] == year, 'message']
     count = 0
@@ -132,7 +142,15 @@ for year in years:
         if '?' in m:
             count += 1
     rel_questions[str(year)] = round(count / len(df_temp) * 100, 2)
+    percent.append(round(count / len(df_temp) * 100, 2))
 print(rel_questions)
+
+#Plots
+fig, ax = plt.subplots(2, 1, figsize = (13, 20))
+sns.lineplot(data = freq_words_plot, x = 'year', y = 'place', hue = 'word', ax = ax[0]).set_title('Популярные слова')
+sns.barplot(x = years, y = percent, ax = ax[1]).set_title('Процент сообщений-вопросов')
+ax[1].set(xlabel = 'year', ylabel = 'percent')
+plt.show()
 
 #Проведя анализ фрейма данных 'freq_words' можно сделать следующие выводы:
 #главным предметом обсуждения на протяжении пяти лет является 'бот';
