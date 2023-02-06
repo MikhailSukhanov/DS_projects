@@ -9,10 +9,10 @@ print('The end')
 long_winded_computation = (1 + 2 + 3 + 4 + 5)
 list_of_lists = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
 easier_to_read_list_of_lists = [[1, 2, 3],
-								[4, 5, 6],
-								[7, 8, 9]]
+				[4, 5, 6],
+				[7, 8, 9]]
 two_plus_three = 2 + \
-				 3
+		3
 
 import re as regex
 my_regex = regex.compile('[0-9]+', regex.I)
