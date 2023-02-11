@@ -25,10 +25,10 @@ size_chats = 15
 groups = []
 
 result = client(GetDialogsRequest(offset_date = last_date,
-								 offset_id = 0,
-								 offset_peer = InputPeerEmpty(),
-								 limit = size_chats,
-								 hash = 0))
+				  offset_id = 0,
+				  offset_peer = InputPeerEmpty(),
+				  limit = size_chats,
+				  hash = 0))
 chats.extend(result.chats)
 
 for chat in chats:
@@ -49,13 +49,13 @@ total_count_limit = 0
 
 while True:
 	history = client(GetHistoryRequest(peer = groups[1],	#Aimylogic (сообщество пользователей)
-								   	   offset_id = offset_id,
-									   offset_date = None,
-									   add_offset = 0,
-									   limit = limit,
-									   max_id = 0,
-									   min_id = 0,
-									   hash = 0))
+					   offset_id = offset_id,
+					   offset_date = None,
+					   add_offset = 0,
+					   limit = limit,
+					   max_id = 0,
+					   min_id = 0,
+					   hash = 0))
 	if not history.messages:
 		break
 	messages = history.messages
