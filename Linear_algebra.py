@@ -57,7 +57,7 @@ def squared_distance(v: Vector, w: Vector) -> float:
 	return sum_of_squares(subtract(v, w))
 
 def distance1(v: Vector, w: Vector) -> float:
-	return math.sqrt(squared_distance(v, m))
+	return math.sqrt(squared_distance(v, w))
 
 def distance2(v: Vector, w: Vector) -> float:
 	return magnitude(subtract(v, w))
