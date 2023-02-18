@@ -134,7 +134,7 @@ def build_tree_id3(inputs: List[Any],
 	partitions = partition_by(inputs, best_attribute)
 	new_attributes = [a for a in split_attributes if a != best_attribute]
 	subtrees = {attribute_value: build_tree_id3(subset, new_attributes,
-												target_attribute)
+						    target_attribute)
 				for attribute_value, subset in partitions.items()}
 	return Split(best_attribute, subtrees, default_value = most_common_label)
 
