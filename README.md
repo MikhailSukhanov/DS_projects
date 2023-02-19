@@ -1,4 +1,4 @@
 This repository contains:
 - Kaggle projects folder
 - NLP projects folder
-- Files on some other topics
+- Folder with the implementation of many DS topics in python
