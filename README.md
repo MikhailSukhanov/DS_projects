@@ -2,4 +2,4 @@ This repository contains:
 - Folder with the implementation of many DS topics in python
 - Kaggle projects folder
 - NLP projects folder
-- Folder with queries in SQL
+- Folder with SQL queries
