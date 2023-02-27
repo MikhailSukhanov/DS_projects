@@ -220,6 +220,7 @@ class GradientDescent(Optimizer):
 			param[:] = tensor_combine(
 						lambda param, grad: param - grad * self.lr,
 						param, grad)
+
 class Momentum(Optimizer):
 	def __init__(self, learning_rate: float, momentum: float = 0.9) -> None:
 		self.lr = learning_rate
